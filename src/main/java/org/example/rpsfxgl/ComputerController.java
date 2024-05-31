@@ -32,7 +32,7 @@ public class ComputerController implements Initializable {
     private TextField comHp;
 
     @FXML
-    private TextField comLevel;
+    private TextField comStage;
 
     @FXML
     private TextField comName;
@@ -56,7 +56,7 @@ public class ComputerController implements Initializable {
 
     private void add(){
         try(Connection connection = Koneksi.DBConnect()){
-            if(comHp.getText() == null || comName.getText() == null || comLevel.getText() == null || comXp.getText() == null || comDamage.getText() == null){
+            if(comHp.getText() == null || comName.getText() == null || comStage.getText() == null || comXp.getText() == null || comDamage.getText() == null){
                 showAlert("Data tidak boleh kosong", Alert.AlertType.ERROR);
                 return;
             }
@@ -71,13 +71,13 @@ public class ComputerController implements Initializable {
                 return;
             }
 
-            String sql = "INSERT INTO com (name, health, damage, exp, level) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO com (name, health, damage, exp, stage) VALUES(?,?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, comName.getText());
-            statement.setInt(3, Integer.parseInt(comHp.getText()));
-            statement.setInt(5, Integer.parseInt(comDamage.getText()));
+            statement.setInt(2, Integer.parseInt(comHp.getText()));
+            statement.setInt(3, Integer.parseInt(comDamage.getText()));
             statement.setInt(4, Integer.parseInt(comXp.getText()));
-            statement.setInt(2, Integer.parseInt(comLevel.getText()));
+            statement.setInt(5, Integer.parseInt(comStage.getText()));
             statement.executeUpdate();
             statement.close();
             showAlert("Data berhasil disimpan", Alert.AlertType.INFORMATION);
@@ -90,7 +90,7 @@ public class ComputerController implements Initializable {
 
     private void update(){
         try(Connection connection = Koneksi.DBConnect()){
-            if(comHp.getText() == null || comName.getText() == null || comLevel.getText() == null || comXp.getText() == null || comDamage.getText() == null){
+            if(comHp.getText() == null || comName.getText() == null || comStage.getText() == null || comXp.getText() == null || comDamage.getText() == null){
                 showAlert("Data tidak boleh kosong", Alert.AlertType.ERROR);
                 return;
             }
@@ -105,13 +105,13 @@ public class ComputerController implements Initializable {
                 return;
             }
 
-            String sql = "UPDATE com SET name = ?, health = ?, damage = ?, exp = ?, level = ? WHERE id = ?";
+            String sql = "UPDATE com SET name = ?, health = ?, damage = ?, exp = ?, stage = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, comName.getText());
             statement.setInt(2, Integer.parseInt(comHp.getText()));
             statement.setInt(3, Integer.parseInt(comDamage.getText()));
             statement.setInt(4, Integer.parseInt(comXp.getText()));
-            statement.setInt(5, Integer.parseInt(comLevel.getText()));
+            statement.setInt(5, Integer.parseInt(comStage.getText()));
             statement.setInt(6, tableView.getSelectionModel().getSelectedItem().getId());
             statement.executeUpdate();
             statement.close();
@@ -151,7 +151,7 @@ public class ComputerController implements Initializable {
                         resultSet.getInt("health"),
                         resultSet.getInt("damage"),
                         resultSet.getInt("exp"),
-                        resultSet.getInt("level"));
+                        resultSet.getInt("stage"));
                 computers.add(computer);
             }
             tableView.setItems(computers);
@@ -163,7 +163,7 @@ public class ComputerController implements Initializable {
 
     private void clear(){
         comName.clear();
-        comLevel.clear();
+        comStage.clear();
         comHp.clear();
         comXp.clear();
         comDamage.clear();

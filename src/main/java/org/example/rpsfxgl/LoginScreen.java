@@ -106,7 +106,7 @@ public class LoginScreen implements Initializable {
             }
         }
         try {
-            String query = "SELECT * FROM User WHERE Username = ? AND Password = ?";
+            String query = "SELECT * FROM user WHERE Username = ? AND Password = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
@@ -122,8 +122,12 @@ public class LoginScreen implements Initializable {
                         rs.getInt("damage")
                 );
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("arena.fxml"));
                 Parent root = loader.load();
+
+                Arena arenaController = loader.getController();
+                arenaController.setCurrentPlayer(akun);
+
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.show();

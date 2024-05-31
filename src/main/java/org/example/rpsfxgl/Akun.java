@@ -1,5 +1,9 @@
 package org.example.rpsfxgl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Akun {
     private String Username;
     private String Password;
@@ -65,6 +69,21 @@ public class Akun {
         Damage = damage;
     }
 
+    public void updatePlayerData() {
+        try (Connection connection = Koneksi.DBConnect()) {
+            String query = "UPDATE user SET xp = ?, level = ?, health = ? WHERE Username = ?";
+
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, getXp());
+                preparedStatement.setInt(2, getLevel());
+                preparedStatement.setInt(3, getHealth());
+                preparedStatement.setString(4, getUsername());
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
