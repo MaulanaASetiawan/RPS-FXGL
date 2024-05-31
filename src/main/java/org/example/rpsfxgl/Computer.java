@@ -8,15 +8,15 @@ public class Computer {
     private int comHp;
     private int comDamage;
     private int comXp;
-    private int comLevel;
+    private int comStage;
 
-    public Computer(int comId, String comName, int comHp, int comDamage, int comXp, int comLevel) {
+    public Computer(int comId, String comName, int comHp, int comDamage, int comXp, int comStage) {
         this.comId = new SimpleIntegerProperty(comId);
         this.comName = comName;
         this.comHp = comHp;
         this.comDamage = comDamage;
         this.comXp = comXp;
-        this.comLevel = comLevel;
+        this.comStage = comStage;
     }
 
     public int getId() {
@@ -60,11 +60,11 @@ public class Computer {
     }
 
 
-    public int getComLevel() {
-        return comLevel;
+    public int getComStage() {
+        return comStage;
     }
 
-    public void setComLevel(int comLevel) {
-        this.comLevel = comLevel;
+    public void setComStage(int comLevel) {
+        this.comStage = comLevel;
     }
 }

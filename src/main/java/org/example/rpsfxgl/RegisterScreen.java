@@ -84,7 +84,7 @@ public class RegisterScreen implements Initializable {
         String ConfirmPassword = txtConfirm.getText();
 
         int Health = 100;
-        int Xp = 100;
+        int Xp = 0;
         int Level = 1;
         int Damage = 10;
         if (Username.isEmpty() || Password.isEmpty() || ConfirmPassword.isEmpty()) {
