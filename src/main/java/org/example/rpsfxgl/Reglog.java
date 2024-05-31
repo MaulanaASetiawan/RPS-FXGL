@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SinglePlayer extends Application {
+public class Reglog extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SinglePlayer.class.getResource("computer.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Reglog.class.getResource("LoginScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Game RPS");
         stage.setScene(scene);
         stage.show();
     }
