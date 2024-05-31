@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.MultiplayerController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="456.0" prefWidth="614.0">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0">
+               <children>
+                  <Label fx:id="lblStage" text="Stage 1" />
+                  <Label />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="480.0">
+               <children>
+                  <Label fx:id="lblPlayer1Name" text="Player 1" />
+                  <Label fx:id="lblPlayer2Name" text="Player 2" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="165.0">
+               <children>
+                  <ProgressBar fx:id="pbPlayer1" prefHeight="18.0" prefWidth="320.0" progress="0.0" />
+                  <ProgressBar fx:id="pbPlayer2" prefHeight="18.0" prefWidth="320.0" progress="0.0" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="345.0" prefWidth="584.0">
+               <children>
+                  <Label fx:id="lblFightStatus" text="Player Win/Lose Status" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="260.0">
+                     <children>
+                        <Label fx:id="lblPlayer1Selection" text="Player 1 Choose" />
+                        <Label fx:id="lblPlayer2Selection" text="Player 2 Choose" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="584.0" spacing="250.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="btnRockPlayer1" mnemonicParsing="false" text="Rock" />
+                              <Button fx:id="btnPaperPlayer1" mnemonicParsing="false" text="Paper" />
+                              <Button fx:id="btnScissorsPlayer1" mnemonicParsing="false" text="Scissors" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="btnRockPlayer2" mnemonicParsing="false" text="Rock" />
+                              <Button fx:id="btnPaperPlayer2" mnemonicParsing="false" text="Paper" />
+                              <Button fx:id="btnScissorsPlayer2" mnemonicParsing="false" text="Scissors" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
