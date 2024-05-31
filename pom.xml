@@ -85,7 +85,11 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
+<<<<<<< HEAD
               <mainClass>org.example.rpsfxgl/org.example.rpsfxgl.Multiplayer</mainClass>
+=======
+              <mainClass>org.example.rpsfxgl/org.example.rpsfxgl.Reglog</mainClass>
+>>>>>>> 5ffb036b6a2649003a45bf78bc018edcf6b7d1d9
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

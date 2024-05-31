@@ -11,6 +11,12 @@ target/
 *.iws
 *.iml
 *.ipr
+.src/main/java/org.example.rpsfxgl/Akun.java
+.src/main/java/org.example.rpsfxgl/LoginScreen.java
+.src/main/java/org.example.rpsfxgl/RegisterScreen.java
+.src/main/java/org.example.rpsfxgl/Reglog.java
+.src/main/resources/org.example.rpsfxgl/LoginScreen.fxml
+.src/main/resources/org.example.rpsfxgl/RegisterScreen.fxml
 
 ### Eclipse ###
 .apt_generated
