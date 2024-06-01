@@ -5,7 +5,7 @@ Di suatu malam, sebuah kelompok PA PBO dikejar deadline, para barudak sadar akan
 | Syntax      | Description | 
 | :----:      |    :----:   | 
 | Wilson      | Pecandu Al-Nassr      | 
-| Agus   | Spurs Loper        | 
+| Agus   | Raja Iblis Sangatta       | 
 | Nabil | Tangan Kanan Gajah Mada |
 | Joy | Speedtrack Enjoyer |
 
