@@ -8,3 +8,5 @@ Di suatu malam, sebuah kelompok PA PBO dikejar deadline, para barudak sadar akan
 | Agus   | Spurs Loper        | 
 | Nabil | Tangan Kanan Gajah Mada |
 | Joy | Speedtrack Enjoyer |
+
+![Jaga Ucapanmu.png](https://github.com/nabilsaragih/RPS-FXGL/blob/main/assets/jaga-ucapanmu.jpg)
