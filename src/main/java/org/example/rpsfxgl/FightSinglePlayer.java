@@ -52,7 +52,6 @@ public class FightSinglePlayer {
     private final String[] choices = {"Rock", "Paper", "Scissors"};
     private Random random = new Random();
 
-
     public void setFightInfo(Computer computer, Akun player) {
         currentComputer = computer;
         currentPlayer = player;
@@ -81,13 +80,13 @@ public class FightSinglePlayer {
                 (playerChoice.equals("Paper") && comChoice.equals("Rock")) ||
                 (playerChoice.equals("Scissors") && comChoice.equals("Paper"))) {
             computer.setComHp(computer.getComHp() - playerDamage);
-            barHealthCom.setProgress((double) comHp / 100);
+            barHealthCom.setProgress((double) computer.getComHp() / 100);
             lblStage.setText(lblStage.getText() + " -> Player Wins!");
 
             if (computer.getComHp() <= 0) {
                 lblStage.setText("You win the game!");
                 disableButtons();
-                showEndGameDialog("You win the game!");
+                handlePlayerWin();
             }
         } else {
             playerHp -= computer.getComDamage();
@@ -100,6 +99,24 @@ public class FightSinglePlayer {
                 showEndGameDialog("You lose the game!");
             }
         }
+    }
+
+    private void handlePlayerWin() {
+        int currentExp = currentPlayer.getXp();
+        currentExp += currentComputer.getComXp();
+        currentPlayer.setXp(currentExp);
+
+        if (currentExp >= 100) {
+            int currentLevel = currentPlayer.getLevel();
+            currentLevel++;
+            currentPlayer.setLevel(currentLevel);
+            currentPlayer.setHealth(currentPlayer.getHealth() + 10);
+            currentPlayer.setXp(currentExp - 100);
+            lblStage.setText("Player wins and leveled up to level " + currentLevel);
+        }
+
+        currentPlayer.updatePlayerData(); // Ensure the player data is updated in the database
+        showEndGameDialog("You win the game!");
     }
 
     private void disableButtons() {
@@ -130,38 +147,14 @@ public class FightSinglePlayer {
     private void retryGame() {
         currentComputer.setComHp(comHp);
 
-        System.out.println("Player HP: " + playerHp);
-        currentPlayer.setHealth(playerHp);
-        System.out.println("Player HP after retry: " + currentPlayer.getHealth());
-
+        playerHp = currentPlayer.getHealth(); // Reset player HP from the current player's health
         barHealthCom.setProgress((double) comHp / 100);
         barHealthPlayer.setProgress(1.0);
         lblStage.setText("Stage " + currentComputer.getComStage());
         btnRock.setDisable(false);
         btnPaper.setDisable(false);
         btnScissor.setDisable(false);
-
-        if (currentComputer.getComHp() <= 0) {
-            int currentExp = currentPlayer.getXp();
-            currentExp += currentComputer.getComXp();
-            currentPlayer.setXp(currentExp);
-
-            if (currentExp >= 100) {
-                int currentLevel = currentPlayer.getLevel();
-                currentLevel++;
-                currentPlayer.setLevel(currentLevel);
-                currentPlayer.setHealth(currentPlayer.getHealth() + 10);
-                currentPlayer.setXp(currentExp - 100);
-                lblStage.setText("Player wins and leveled up to level " + currentLevel);
-
-                currentPlayer.updatePlayerData();
-            } else {
-                lblStage.setText("Player wins!");
-            }
-        }
     }
-
-
 
     private void backToList() {
         try {
@@ -182,4 +175,10 @@ public class FightSinglePlayer {
         }
     }
 
+    // Assuming this is the method to show alert dialogs
+    private void showAlert(String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

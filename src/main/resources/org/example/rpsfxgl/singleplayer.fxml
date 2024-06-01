@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.FightSinglePlayer">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #01204E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.FightSinglePlayer">
    <children>
       <VBox layoutX="24.0" layoutY="24.0" prefHeight="456.0" prefWidth="614.0">
          <padding>
@@ -18,14 +17,14 @@
          <children>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0">
                <children>
-                  <Label fx:id="lblStage" text="Stage 1" />
+                  <Label fx:id="lblStage" text="Stage 1" textFill="WHITE" />
                   <Label />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="400.0">
                <children>
-                  <Label fx:id="lblPlayerName" text="Player 1" />
-                  <Label fx:id="lblComName" text="Computer Name" />
+                  <Label fx:id="lblPlayerName" text="Player 1" textFill="WHITE" />
+                  <Label fx:id="lblComName" text="Computer Name" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="165.0">
@@ -36,10 +35,10 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="345.0" prefWidth="584.0">
                <children>
-                  <Label text="Player Win/Lose Status" />
+                  <Label text="Player Win/Lose Status" textFill="WHITE" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="260.0">
                      <children>
-                        <Label text="Player 1 Choose" />
+                        <Label text="Player 1 Choose" textFill="WHITE" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="584.0" spacing="260.0">
