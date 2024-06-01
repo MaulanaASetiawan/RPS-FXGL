@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.MultiplayerController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #01204E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.MultiplayerController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="456.0" prefWidth="614.0">
          <padding>
@@ -17,14 +18,23 @@
          <children>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0">
                <children>
-                  <Label fx:id="lblStage" text="Stage 1" />
+                  <Label fx:id="lblStage" text="Stage 1" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font></Label>
                   <Label />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="480.0">
                <children>
-                  <Label fx:id="lblPlayer1Name" text="Player 1" />
-                  <Label fx:id="lblPlayer2Name" text="Player 2" />
+                  <Label fx:id="lblPlayer1Name" text="Player 1" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label fx:id="lblPlayer2Name" text="Player 2" textFill="#fffcfc">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="165.0">
@@ -35,27 +45,36 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="345.0" prefWidth="584.0">
                <children>
-                  <Label fx:id="lblFightStatus" text="Player Win/Lose Status" />
+                  <Label fx:id="lblFightStatus" text="Player Win/Lose Status" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="260.0">
                      <children>
-                        <Label fx:id="lblPlayer1Selection" text="Player 1 Choose" />
-                        <Label fx:id="lblPlayer2Selection" text="Player 2 Choose" />
+                        <Label fx:id="lblPlayer1Selection" text="Player 1 Choose" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label fx:id="lblPlayer2Selection" text="Player 2 Choose" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="584.0" spacing="250.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btnRockPlayer1" mnemonicParsing="false" text="Rock" />
-                              <Button fx:id="btnPaperPlayer1" mnemonicParsing="false" text="Paper" />
-                              <Button fx:id="btnScissorsPlayer1" mnemonicParsing="false" text="Scissors" />
+                              <Button fx:id="btnRockPlayer1" mnemonicParsing="false" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
+                              <Button fx:id="btnPaperPlayer1" mnemonicParsing="false" style="-fx-background-color: #64B5F6;" text="Paper" textFill="#fffcfc" />
+                              <Button fx:id="btnScissorsPlayer1" mnemonicParsing="false" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btnRockPlayer2" mnemonicParsing="false" text="Rock" />
-                              <Button fx:id="btnPaperPlayer2" mnemonicParsing="false" text="Paper" />
-                              <Button fx:id="btnScissorsPlayer2" mnemonicParsing="false" text="Scissors" />
+                              <Button fx:id="btnRockPlayer2" mnemonicParsing="false" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
+                              <Button fx:id="btnPaperPlayer2" mnemonicParsing="false" style="-fx-background-color: #64B5F6;" text="Paper" textFill="WHITE" />
+                              <Button fx:id="btnScissorsPlayer2" mnemonicParsing="false" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>

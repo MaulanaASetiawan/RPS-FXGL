@@ -122,10 +122,10 @@ public class LoginScreen implements Initializable {
                         rs.getInt("damage")
                 );
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("arena.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuUser.fxml"));
                 Parent root = loader.load();
 
-                Arena arenaController = loader.getController();
+                MenuUser arenaController = loader.getController();
                 arenaController.setCurrentPlayer(akun);
 
                 Stage stage = new Stage();
@@ -150,9 +150,7 @@ public class LoginScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btnLogin.setOnAction(actionEvent -> {
-            Login(actionEvent);
-        });
+        btnLogin.setOnAction(this::Login);
 
         lblSignup.setOnMouseClicked(this::switchToSignUp);
 

@@ -74,10 +74,10 @@ public class Akun {
             String query = "UPDATE user SET xp = ?, level = ?, health = ? WHERE Username = ?";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, getXp());
-                preparedStatement.setInt(2, getLevel());
-                preparedStatement.setInt(3, getHealth());
-                preparedStatement.setString(4, getUsername());
+                preparedStatement.setInt(1, Xp);
+                preparedStatement.setInt(2, Level);
+                preparedStatement.setInt(3, Health);
+                preparedStatement.setString(4, Username);
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
