@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.ListComputerController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #373A40;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.ListComputerController">
    <children>
       <TableView fx:id="tableView" layoutX="34.0" layoutY="33.0" prefHeight="414.0" prefWidth="320.0">
         <columns>
@@ -16,7 +16,13 @@
             <TableColumn fx:id="colXp" prefWidth="66.4000244140625" text="Exp Drop" />
         </columns>
       </TableView>
-      <Button fx:id="btnFight" layoutX="385.0" layoutY="108.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="222.0" text="Fight" />
-      <Button fx:id="btnBack" layoutX="385.0" layoutY="240.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="222.0" text="Back" />
+      <Button fx:id="btnFight" layoutX="385.0" layoutY="108.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="222.0" style="-fx-background-color: #F9B401; -fx-background-radius: 10;" text="Fight" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="24.0" />
+         </font></Button>
+      <Button fx:id="btnBack" layoutX="385.0" layoutY="240.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="222.0" style="-fx-background-color: #F9B401; -fx-background-radius: 10;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -58,7 +58,6 @@ public class LoginScreen implements Initializable {
     }
 
     void switchToSignUp(MouseEvent event) {
-        // Method implementation for switching to signup form
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterScreen.fxml"));
             Parent root = loader.load();
@@ -84,7 +83,6 @@ public class LoginScreen implements Initializable {
             return;
         }
 
-        // Static admin login check
         if ("Admin".equalsIgnoreCase(username) && "admin123".equals(password)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("computer.fxml"));
@@ -98,7 +96,7 @@ public class LoginScreen implements Initializable {
 
                 showAlert(Alert.AlertType.INFORMATION, "Login Successful!", "Welcome, Admin");
                 clearFields();
-                return; // Exit method after admin login
+                return;
             } catch (IOException e) {
                 e.printStackTrace();
                 showAlert(Alert.AlertType.ERROR, "Error", "Failed to load admin form");
@@ -132,7 +130,6 @@ public class LoginScreen implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.show();
 
-                // Close current stage
                 Stage currentStage = (Stage) btnLogin.getScene().getWindow();
                 currentStage.close();
 

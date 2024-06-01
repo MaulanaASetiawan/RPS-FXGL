@@ -23,14 +23,38 @@
             <RowConstraints maxHeight="350.0000061035156" minHeight="10.0" prefHeight="212.4" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnStage1" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 1" GridPane.rowIndex="1" />
-            <Button fx:id="btnStage2" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="btnStage3" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="btnStage4" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 4" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="btnStage5" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 5" GridPane.rowIndex="2" />
-            <Button fx:id="btnStage6" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 6" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btnStage7" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 7" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="btnStageBoss" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Boss" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnStage1" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage2" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage3" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage4" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 4" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage5" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 5" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage6" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 6" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStage7" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="Stage 7" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnStageBoss" mnemonicParsing="false" prefHeight="134.0" prefWidth="133.0" text="P Adu !!" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Rockwell Condensed" size="18.0" />
+               </font></Button>
          </children>
       </GridPane>
       <Label fx:id="lblPlayerName" layoutX="41.0" layoutY="41.0" text="Player Name : " textFill="WHITE">
@@ -45,6 +69,9 @@
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Button fx:id="btnLogout" layoutX="538.0" layoutY="29.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="64.0" style="-fx-background-color: #F9B401; -fx-background-radius: 5;" text="Logout" textFill="WHITE" />
+      <Button fx:id="btnLogout" layoutX="538.0" layoutY="29.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" style="-fx-background-color: #F9B401; -fx-background-radius: 5;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

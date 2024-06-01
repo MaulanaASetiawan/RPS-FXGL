@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #01204E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.MultiplayerController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #373A40;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.MultiplayerController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="456.0" prefWidth="614.0">
          <padding>
@@ -65,16 +65,16 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btnRockPlayer1" mnemonicParsing="false" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
-                              <Button fx:id="btnPaperPlayer1" mnemonicParsing="false" style="-fx-background-color: #64B5F6;" text="Paper" textFill="#fffcfc" />
-                              <Button fx:id="btnScissorsPlayer1" mnemonicParsing="false" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
+                              <Button fx:id="btnRockPlayer1" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
+                              <Button fx:id="btnPaperPlayer1" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #64B5F6;" text="Paper" textFill="#fffcfc" />
+                              <Button fx:id="btnScissorsPlayer1" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btnRockPlayer2" mnemonicParsing="false" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
-                              <Button fx:id="btnPaperPlayer2" mnemonicParsing="false" style="-fx-background-color: #64B5F6;" text="Paper" textFill="WHITE" />
-                              <Button fx:id="btnScissorsPlayer2" mnemonicParsing="false" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
+                              <Button fx:id="btnRockPlayer2" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
+                              <Button fx:id="btnPaperPlayer2" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #64B5F6;" text="Paper" textFill="WHITE" />
+                              <Button fx:id="btnScissorsPlayer2" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #FF8A80;" text="Scissors" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>

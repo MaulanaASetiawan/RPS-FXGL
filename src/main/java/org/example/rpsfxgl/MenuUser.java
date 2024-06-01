@@ -60,7 +60,6 @@ public class MenuUser implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -76,7 +75,6 @@ public class MenuUser implements Initializable {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-//            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load login form");
         }
 
 
@@ -87,6 +85,7 @@ public class MenuUser implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnSingle.setOnAction(this::MenuSingle);
         btnMulti.setOnAction(this::MenuMulti);
+        btnExit.setOnAction(this::Exit);
     }
 
     public void setCurrentPlayer(Akun player) {
