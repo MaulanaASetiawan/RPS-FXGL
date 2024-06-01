@@ -1,5 +1,6 @@
 package org.example.rpsfxgl;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,8 +10,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
+import org.lwjgl.glfw.GLFW;
+import org.lwjgl.glfw.GLFWGamepadState;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
 
@@ -52,6 +56,9 @@ public class FightSinglePlayer {
     private final String[] choices = {"Rock", "Paper", "Scissors"};
     private Random random = new Random();
 
+    private ArrayList<Byte> gamepadState = new ArrayList<>();
+
+
     public void setFightInfo(Computer computer, Akun player) {
         currentComputer = computer;
         currentPlayer = player;
@@ -64,6 +71,50 @@ public class FightSinglePlayer {
         lblPlayerName.setText(player.getUsername());
         barHealthCom.setProgress((double) comHp / 100);
         barHealthPlayer.setProgress(1.0);
+
+        Platform.runLater(() -> {
+            Runnable gamepadStateRunnable = () -> {
+                if (!GLFW.glfwInit()) {
+                    System.err.println("Failed to initialize GLFW");
+                    System.exit(-1);
+                }
+
+                GLFWGamepadState state = GLFWGamepadState.create();
+
+                while (true) {
+                    if (GLFW.glfwGetGamepadState(GLFW.GLFW_JOYSTICK_1, state)) {
+                        gamepadState.clear();
+                        for (int i = 0; i <= 3; i++) {
+                            gamepadState.add(state.buttons(i));
+                        }
+
+                        Platform.runLater(() -> {
+                            if (!gamepadState.isEmpty()) {
+                                System.out.println("Gamepad State: " + gamepadState);
+                                if (gamepadState.get(0) == 1) {
+                                    handlePlayerChoice("Rock", currentComputer);
+                                } else if (gamepadState.get(1) == 1) {
+                                    handlePlayerChoice("Paper", currentComputer);
+                                } else if (gamepadState.get(2) == 1) {
+                                    handlePlayerChoice("Scissors", currentComputer);
+                                }
+                            }
+                        });
+                    }
+
+                    try {
+                        Thread.sleep(150);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    GLFW.glfwPollEvents();
+                }
+            };
+
+            Thread gamepadThread = new Thread(gamepadStateRunnable);
+            gamepadThread.setDaemon(true);
+            gamepadThread.start();
+        });
 
         btnRock.setOnAction(actionEvent -> handlePlayerChoice("Rock", computer));
         btnPaper.setOnAction(actionEvent -> handlePlayerChoice("Paper", computer));
@@ -79,21 +130,23 @@ public class FightSinglePlayer {
         } else if ((playerChoice.equals("Rock") && comChoice.equals("Scissors")) ||
                 (playerChoice.equals("Paper") && comChoice.equals("Rock")) ||
                 (playerChoice.equals("Scissors") && comChoice.equals("Paper"))) {
-            computer.setComHp(computer.getComHp() - playerDamage);
-            barHealthCom.setProgress((double) computer.getComHp() / 100);
+            int newComHp = computer.getComHp() - playerDamage;
+            computer.setComHp(newComHp);
+            barHealthCom.setProgress((double) newComHp / 100);
             lblStage.setText(lblStage.getText() + " -> Player Wins!");
 
-            if (computer.getComHp() <= 0) {
+            if (newComHp <= 0) {
                 lblStage.setText("You win the game!");
                 disableButtons();
                 handlePlayerWin();
             }
         } else {
-            playerHp -= computer.getComDamage();
-            barHealthPlayer.setProgress((double) playerHp / 100);
+            int newPlayerHp = playerHp - computer.getComDamage();
+            playerHp = newPlayerHp;
+            barHealthPlayer.setProgress((double) newPlayerHp / 100);
             lblStage.setText(lblStage.getText() + " -> Computer Wins!");
 
-            if (playerHp <= 0) {
+            if (newPlayerHp <= 0) {
                 lblStage.setText("You lose the game!");
                 disableButtons();
                 showEndGameDialog("You lose the game!");
@@ -101,23 +154,6 @@ public class FightSinglePlayer {
         }
     }
 
-    private void handlePlayerWin() {
-        int currentExp = currentPlayer.getXp();
-        currentExp += currentComputer.getComXp();
-        currentPlayer.setXp(currentExp);
-
-        if (currentExp >= 100) {
-            int currentLevel = currentPlayer.getLevel();
-            currentLevel++;
-            currentPlayer.setLevel(currentLevel);
-            currentPlayer.setHealth(currentPlayer.getHealth() + 10);
-            currentPlayer.setXp(currentExp - 100);
-            lblStage.setText("Player wins and leveled up to level " + currentLevel);
-        }
-
-        currentPlayer.updatePlayerData(); // Ensure the player data is updated in the database
-        showEndGameDialog("You win the game!");
-    }
 
     private void disableButtons() {
         btnRock.setDisable(true);
@@ -144,10 +180,28 @@ public class FightSinglePlayer {
         }
     }
 
+    private void handlePlayerWin() {
+        int currentExp = currentPlayer.getXp();
+        currentExp += currentComputer.getComXp();
+        currentPlayer.setXp(currentExp);
+
+        if (currentExp >= 100) {
+            int currentLevel = currentPlayer.getLevel();
+            currentLevel++;
+            currentPlayer.setLevel(currentLevel);
+            currentPlayer.setHealth(currentPlayer.getHealth() + 10);
+            currentPlayer.setXp(currentExp - 100);
+            lblStage.setText("Player wins and leveled up to level " + currentLevel);
+        }
+
+        currentPlayer.updatePlayerData();
+        showEndGameDialog("You win the game!");
+    }
+
     private void retryGame() {
         currentComputer.setComHp(comHp);
 
-        playerHp = currentPlayer.getHealth(); // Reset player HP from the current player's health
+        playerHp = currentPlayer.getHealth();
         barHealthCom.setProgress((double) comHp / 100);
         barHealthPlayer.setProgress(1.0);
         lblStage.setText("Stage " + currentComputer.getComStage());
@@ -155,6 +209,10 @@ public class FightSinglePlayer {
         btnPaper.setDisable(false);
         btnScissor.setDisable(false);
     }
+
+
+
+
 
     private void backToList() {
         try {
@@ -173,12 +231,7 @@ public class FightSinglePlayer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    // Assuming this is the method to show alert dialogs
-    private void showAlert(String message, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

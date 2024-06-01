@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #01204E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.FightSinglePlayer">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #373A40;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rpsfxgl.FightSinglePlayer">
    <children>
-      <VBox layoutX="24.0" layoutY="24.0" prefHeight="456.0" prefWidth="614.0">
+      <VBox layoutX="13.0" layoutY="24.0" prefHeight="456.0" prefWidth="614.0">
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
@@ -27,7 +27,7 @@
                   <Label fx:id="lblComName" text="Computer Name" textFill="WHITE" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="165.0">
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="584.0" spacing="155.0">
                <children>
                   <ProgressBar fx:id="barHealthPlayer" prefHeight="18.0" prefWidth="320.0" progress="0.0" />
                   <ProgressBar fx:id="barHealthCom" prefHeight="18.0" prefWidth="320.0" progress="0.0" />
@@ -45,9 +45,9 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btnRock" mnemonicParsing="false" text="Rock" />
-                              <Button fx:id="btnPaper" mnemonicParsing="false" text="Paper" />
-                              <Button fx:id="btnScissor" mnemonicParsing="false" text="Scissor" />
+                              <Button fx:id="btnRock" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #BDBDBD;" text="Rock" textFill="WHITE" />
+                              <Button fx:id="btnPaper" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #64B5F6;" text="Paper" textFill="WHITE" />
+                              <Button fx:id="btnScissor" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #FF8A80;" text="Scissor" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>

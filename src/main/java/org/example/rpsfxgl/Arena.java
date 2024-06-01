@@ -128,7 +128,7 @@ public class Arena implements Initializable {
 
         btnLogout.setOnAction(actionEvent -> {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuUser.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
                 stage.setTitle("Login");
